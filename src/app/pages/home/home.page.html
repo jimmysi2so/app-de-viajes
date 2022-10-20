@@ -1,0 +1,28 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Home
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+  <ion-list *ngIf="info">
+    <ion-item>
+      <ion-label>
+        <h1>Bienvenido!! {{info.nombre}} {{info.apellido}}</h1>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      
+      <ion-button (click)="editAtributo('password')">Cambiar contraceña</ion-button>
+    </ion-item>
+    <ion-img src="/assets/auto.jpg"></ion-img>
+  </ion-list>
+
+</ion-content>

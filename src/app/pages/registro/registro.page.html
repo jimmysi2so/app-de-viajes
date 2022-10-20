@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Registro</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label>Nombre</ion-label>
+    <ion-input [(ngModel)]="datos.nombre"> </ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Apellido</ion-label>
+    <ion-input [(ngModel)]="datos.apellido"> </ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Correo</ion-label>
+    <ion-input type="email" [(ngModel)]="datos.correo"> </ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Contraceña</ion-label>
+    <ion-input type="password" [(ngModel)]="datos.password"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-item>
+      <ion-label>Tipo de perfil</ion-label>
+      <ion-select [(ngModel)]="datos.perfil">
+        <ion-select-option value="Conductor">Conductor</ion-select-option>
+        <ion-select-option value="Pasajero">Pasajero</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-item>
+
+  <ion-button (click) ='registrar()'>
+    Registrarce
+  </ion-button>
+  <ion-button [routerLink]="['/login']" routerLinkActive="router-link-active">
+    Login
+  </ion-button>
+</ion-content>

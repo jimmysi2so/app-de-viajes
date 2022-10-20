@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Viajes
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-item>
+      <ion-label>Cantidad: </ion-label>
+      <ion-input [(ngModel)]="data.cantidad"> </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Precio: </ion-label>
+      <ion-input [(ngModel)]="data.precio"></ion-input>
+    </ion-item>
+  </ion-card>
+  <ion-button (click)="crearNuevoViaje()">
+    Crear viaje
+  </ion-button>
+</ion-content>

@@ -1,0 +1,17 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Lista de viajes
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="content-viaje" *ngFor="let viaje of viajes" >
+    <h4>{{viaje.cantidad}}</h4>
+    <h4>{{viaje.precio}}</h4>
+  </div>
+</ion-content>
