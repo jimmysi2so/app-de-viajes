@@ -14,12 +14,14 @@
 
   </ion-menu-toggle>
   
-  <ion-item *ngIf="rol === 'Conductor' " detail="true" [routerLink]="['/viajes']" >
-    <ion-label>
-      Crear viaje
-    </ion-label>
-    <ion-icon slot="start" name="apps"></ion-icon>
-  </ion-item>
+  <ion-menu-toggle>
+    <ion-item *ngIf="rol === 'Conductor' " detail="true" [routerLink]="['/viajes']" >
+      <ion-label>
+        Crear viaje
+      </ion-label>
+      <ion-icon slot="start" name="apps"></ion-icon>
+    </ion-item>
+  </ion-menu-toggle>
   
   <ion-menu-toggle *ngIf="login == false">
     <ion-item  detail="true" [routerLink]="['/login']" routerLinkActive="router-link-active" >
@@ -28,7 +30,6 @@
       </ion-label>
       <ion-icon slot="start" name="apps"></ion-icon>
     </ion-item>
-
   </ion-menu-toggle>
 
   <ion-menu-toggle>
