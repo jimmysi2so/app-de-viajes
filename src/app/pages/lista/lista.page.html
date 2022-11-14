@@ -11,7 +11,13 @@
 
 <ion-content>
   <div class="content-viaje" *ngFor="let viaje of viajes" >
-    <h4>{{viaje.cantidad}}</h4>
-    <h4>{{viaje.precio}}</h4>
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Cantidad de pasajeros: {{viaje.cantidad}}</ion-card-title>
+        <ion-card-title>Precio del viaje: {{viaje.precio}}</ion-card-title>
+      </ion-card-header>
+    </ion-card>
+    
   </div>
 </ion-content>
+
