@@ -1,23 +1,46 @@
-<ion-header>
+<ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>Login</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Login
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-item>
-    <ion-label>Correo</ion-label>
-    <ion-input [(ngModel)]="credenciales.correo"> </ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label>Contraceña</ion-label>
-    <ion-input type="password" [(ngModel)]="credenciales.password"></ion-input>
-  </ion-item>
-  <ion-button (click) ='login()'>
-    login
-  </ion-button>
-  <ion-button [routerLink]="['/registro']" routerLinkActive="router-link-active">
-    registro 
-  </ion-button>
+  <form (ngSubmit)="onSubmit()" [formGroup]="contactForm">
+    <ion-item>
+      <ion-label for="name" class="form-label">Correo: </ion-label>
+      <ion-input type="email" [(ngModel)]="credenciales.correo" class="form-control" id="name" name="name" required formControlName="email"></ion-input>
+      
+    </ion-item>
+    <div *ngIf="contactForm.get('email')?.touched && contactForm.get('email')?.errors?.['required']"
+        class="alert alert-danger">Este espacio es requerido.</div>
+      <div *ngIf="contactForm.get('email')?.touched && contactForm.get('email')?.errors?.['email']"
+        class="alert alert-danger">El correo debe tener un @. Ej: juancarlo@gmail.com</div>
+    <ion-item>
+      <ion-label for="name" class="form-label">Contraceña: </ion-label>
+      <ion-input type="password" [(ngModel)]="credenciales.password" class="form-control" id="name" name="name" required formControlName="password"></ion-input>
+      
+    </ion-item>
+    <div *ngIf="contactForm.get('password')?.touched && contactForm.get('password')?.errors?.['required']"
+        class="alert alert-danger">Este espacio es requerido.</div>
+      <div *ngIf="contactForm.get('password')?.touched && contactForm.get('password')?.errors?.['minlength']"
+        class="alert alert-danger">La contraceña debe tener
+        {{ contactForm.get('password')?.errors?.['minlength']?.requiredLength}} caracteres minimo.</div>
+  </form>
+    
+    <ion-button (click) ='login()'>
+      login
+    </ion-button>
+    <ion-button [routerLink]="['/registro']" routerLinkActive="router-link-active">
+      registro 
+    </ion-button>
+    <p>
+      <a [routerLink]="['/forgot-password']">Olvidaste la contraceña</a>
+    </p> 
+  
 </ion-content>
 

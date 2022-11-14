@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { InteractionService } from '../../services/interaction.service';
@@ -10,6 +11,9 @@ import { InteractionService } from '../../services/interaction.service';
 })
 export class LoginPage implements OnInit {
 
+  //formulario
+  contactForm!: FormGroup;
+  //formulario
 
   credenciales = {
     correo: null,
@@ -18,10 +22,27 @@ export class LoginPage implements OnInit {
 
   constructor(private auth: AuthService, 
               private interaction: InteractionService,
-              private router: Router) { }
+              private router: Router,
+              private readonly fb: FormBuilder) { }
 
   ngOnInit() {
+    this.contactForm = this.initForm();
   }
+
+  //formulario
+  onSubmit() {
+    console.log('Form ->');
+  }
+
+  initForm() : FormGroup {
+    return this.fb.group({
+      name: ['', [Validators.required, Validators.minLength(3)]],
+      lastname: ['', [Validators.required, Validators.minLength(3)]],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(6)]]
+    })
+  }
+  //formulario
 
   async login() {
     await this.interaction.presentLoading('Ingresando...')

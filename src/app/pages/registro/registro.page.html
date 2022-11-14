@@ -1,38 +1,67 @@
-<ion-header>
+<ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>Registro</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Registro
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-item>
-    <ion-label>Nombre</ion-label>
-    <ion-input [(ngModel)]="datos.nombre"> </ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label>Apellido</ion-label>
-    <ion-input [(ngModel)]="datos.apellido"> </ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label>Correo</ion-label>
-    <ion-input type="email" [(ngModel)]="datos.correo"> </ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label>Contraceña</ion-label>
-    <ion-input type="password" [(ngModel)]="datos.password"></ion-input>
-  </ion-item>
-
-  <ion-item>
+  <form (ngSubmit)="onSubmit()" [formGroup]="contactForm">
     <ion-item>
-      <ion-label>Tipo de perfil</ion-label>
-      <ion-select [(ngModel)]="datos.perfil">
-        <ion-select-option value="Conductor">Conductor</ion-select-option>
-        <ion-select-option value="Pasajero">Pasajero</ion-select-option>
-      </ion-select>
+      <ion-label for="name" class="form-label">Nombre: </ion-label>
+      <ion-input [(ngModel)]="datos.nombre" class="form-control" id="name" name="name" required formControlName="name"></ion-input>
+      
     </ion-item>
+    <div *ngIf="contactForm.get('name')?.touched && contactForm.get('name')?.errors?.['required']"
+        class="alert alert-danger">Este espacio es requerido.</div>
+      <div *ngIf="contactForm.get('name')?.touched && contactForm.get('name')?.errors?.['minlength']"
+        class="alert alert-danger">El nombre debe tener mas de
+        {{ contactForm.get('name')?.errors?.['minlength']?.requiredLength}} caracteres.</div>
+    <ion-item>
+      <ion-label for="name" class="form-label">Apellido: </ion-label>
+      <ion-input [(ngModel)]="datos.apellido" class="form-control" id="name" name="name" required formControlName="lastname"></ion-input>
+      
+    </ion-item>
+    <div *ngIf="contactForm.get('lastname')?.touched && contactForm.get('lastname')?.errors?.['required']"
+        class="alert alert-danger">Este espacio es requerido.</div>
+      <div *ngIf="contactForm.get('lastname')?.touched && contactForm.get('lastname')?.errors?.['minlength']"
+        class="alert alert-danger">El nombre debe tener mas de
+        {{ contactForm.get('lastname')?.errors?.['minlength']?.requiredLength}} caracteres.</div>
+    <ion-item>
+      <ion-label for="name" class="form-label">Correo: </ion-label>
+      <ion-input type="email" [(ngModel)]="datos.correo" class="form-control" id="name" name="name" required formControlName="email"></ion-input>
+      
+    </ion-item>
+    <div *ngIf="contactForm.get('email')?.touched && contactForm.get('email')?.errors?.['required']"
+        class="alert alert-danger">Este espacio es requerido.</div>
+      <div *ngIf="contactForm.get('email')?.touched && contactForm.get('email')?.errors?.['email']"
+        class="alert alert-danger">El correo debe tener un @. Ej: juancarlo@gmail.com</div>
+    <ion-item>
+      <ion-label for="name" class="form-label">Contraceña: </ion-label>
+      <ion-input type="password" [(ngModel)]="datos.password" class="form-control" id="name" name="name" required formControlName="password"></ion-input>
+      
+    </ion-item>
+    <div *ngIf="contactForm.get('password')?.touched && contactForm.get('password')?.errors?.['required']"
+        class="alert alert-danger">Este espacio es requerido.</div>
+      <div *ngIf="contactForm.get('password')?.touched && contactForm.get('password')?.errors?.['minlength']"
+        class="alert alert-danger">La contraceña debe tener
+        {{ contactForm.get('password')?.errors?.['minlength']?.requiredLength}} caracteres minimo.</div>
+  </form>
+  
+  <ion-item>
+    <ion-label>Tipo de perfil</ion-label>
+    <ion-select [(ngModel)]="datos.perfil">
+      <ion-select-option value="Conductor">Conductor</ion-select-option>
+      <ion-select-option value="Pasajero">Pasajero</ion-select-option>
+    </ion-select>
   </ion-item>
+  
 
-  <ion-button (click) ='registrar()'>
+  <ion-button [disabled]="contactForm.invalid" (click) ='registrar()'>
     Registrarce
   </ion-button>
   <ion-button [routerLink]="['/login']" routerLinkActive="router-link-active">

@@ -13,7 +13,7 @@ import { environment } from 'src/environments/environment';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AjustesComponent } from './backend/ajustes/ajustes.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MenuComponent } from './components/menu/menu.component';
 
 @NgModule({
@@ -30,7 +30,8 @@ import { MenuComponent } from './components/menu/menu.component';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
     AngularFirestoreModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],

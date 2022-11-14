@@ -31,6 +31,10 @@ const routes: Routes = [
     path: 'ajustes',
     loadChildren: () => import('./backend/ajustes/ajustes.component').then( m => m.AjustesComponent)
   },
+  {
+    path: 'forgot-password',
+    loadChildren: () => import('./pages/forgot-password/forgot-password.module').then( m => m.ForgotPasswordPageModule)
+  },
 ];
 
 @NgModule({
