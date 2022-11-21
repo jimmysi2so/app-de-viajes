@@ -14,6 +14,7 @@ export class AjustesComponent implements OnInit {
     cantidad: null,
     precio: null,
     id: null,
+    horario: null,
   }
 
   constructor(private database: FirestoreService,

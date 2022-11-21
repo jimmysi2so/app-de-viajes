@@ -21,7 +21,7 @@
       <div *ngIf="contactForm.get('email')?.touched && contactForm.get('email')?.errors?.['email']"
         class="alert alert-danger">El correo debe tener un @. Ej: juancarlo@gmail.com</div>
     <ion-item>
-      <ion-label for="name" class="form-label">Contraceña: </ion-label>
+      <ion-label for="name" class="form-label">Contraseña: </ion-label>
       <ion-input type="password" [(ngModel)]="credenciales.password" class="form-control" id="name" name="name" required formControlName="password"></ion-input>
       
     </ion-item>

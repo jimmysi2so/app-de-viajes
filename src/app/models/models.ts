@@ -11,4 +11,5 @@ export interface Viaje {
     cantidad: number;
     precio: number;
     id: string;
+    horario: Date;
 }

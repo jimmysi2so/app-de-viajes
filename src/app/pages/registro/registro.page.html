@@ -29,7 +29,7 @@
     <div *ngIf="contactForm.get('lastname')?.touched && contactForm.get('lastname')?.errors?.['required']"
         class="alert alert-danger">Este espacio es requerido.</div>
       <div *ngIf="contactForm.get('lastname')?.touched && contactForm.get('lastname')?.errors?.['minlength']"
-        class="alert alert-danger">El nombre debe tener mas de
+        class="alert alert-danger">El apellido debe tener mas de
         {{ contactForm.get('lastname')?.errors?.['minlength']?.requiredLength}} caracteres.</div>
     <ion-item>
       <ion-label for="name" class="form-label">Correo: </ion-label>
@@ -41,7 +41,7 @@
       <div *ngIf="contactForm.get('email')?.touched && contactForm.get('email')?.errors?.['email']"
         class="alert alert-danger">El correo debe tener un @. Ej: juancarlo@gmail.com</div>
     <ion-item>
-      <ion-label for="name" class="form-label">Contraceña: </ion-label>
+      <ion-label for="name" class="form-label">Contraseña: </ion-label>
       <ion-input type="password" [(ngModel)]="datos.password" class="form-control" id="name" name="name" required formControlName="password"></ion-input>
       
     </ion-item>
