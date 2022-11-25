@@ -42,4 +42,15 @@ export class FirestoreService {
       resolve('este es el enlace');
     })
   }
+
+  formatDate(date: Date): string{
+    const day = date.getDate();
+    const month = date.getMonth() + 1;
+    const year = date.getFullYear();
+    const hour = date.getHours();
+    const minute = date.getMinutes();
+
+    return `${year}/${month}/${day} ${hour}:${minute}`;
+  }
+
 }

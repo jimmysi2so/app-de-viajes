@@ -32,7 +32,7 @@
         {{ contactForm.get('password')?.errors?.['minlength']?.requiredLength}} caracteres minimo.</div>
   </form>
     
-    <ion-button (click) ='login()'>
+    <ion-button [disabled]="contactForm.invalid" (click) ='login()'>
       login
     </ion-button>
     <ion-button [routerLink]="['/registro']" routerLinkActive="router-link-active">
