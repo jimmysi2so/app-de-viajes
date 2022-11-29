@@ -10,36 +10,38 @@
 </ion-header>
 
 <ion-content>
-  <form (ngSubmit)="onSubmit()" [formGroup]="contactForm">
-    <ion-item>
-      <ion-label for="name" class="form-label">Cantidad: </ion-label>
-      <ion-input type="number" [(ngModel)]="data.cantidad" class="form-control" id="name" name="name" required formControlName="cantidad"></ion-input>
-      
-    </ion-item>
-    <div *ngIf="contactForm.get('cantidad')?.touched && contactForm.get('cantidad')?.errors?.['required']"
-        class="alert alert-danger">Este espacio es requerido.</div>
-
-    <ion-item>
-      <ion-label for="name" class="form-label">Precio: </ion-label>
-      <ion-input type="number" [(ngModel)]="data.precio" class="form-control" id="name" name="name" required formControlName="precio"></ion-input>
-      
-    </ion-item>
-    <div *ngIf="contactForm.get('precio')?.touched && contactForm.get('precio')?.errors?.['required']"
-        class="alert alert-danger">Este espacio es requerido.</div>
-
+  <ion-card>
+    <form (ngSubmit)="onSubmit()" [formGroup]="contactForm">
+      <ion-item>
+        <ion-label for="name" class="form-label">Cantidad: </ion-label>
+        <ion-input type="number" [(ngModel)]="data.cantidad" class="form-control" id="name" name="name" required formControlName="cantidad"></ion-input>
         
-        <ion-item>
-          <ion-label>Programar viaje: </ion-label> 
-        </ion-item>
-        <ion-input type="date" class="form-control" id="name" name="name" required formControlName="fecha" [(ngModel)]="data.fecha"></ion-input>
-        <div *ngIf="contactForm.get('fecha')?.touched && contactForm.get('fecha')?.errors?.['required']"
-        class="alert alert-danger">Este espacio es requerido.</div>
-        <ion-input type="time" class="form-control" id="name" name="name" required formControlName="hora" [(ngModel)]="data.hora"></ion-input>
-        <div *ngIf="contactForm.get('hora')?.touched && contactForm.get('hora')?.errors?.['required']"
-        class="alert alert-danger">Este espacio es requerido.</div>
-  </form>
+      </ion-item>
+      <div *ngIf="contactForm.get('cantidad')?.touched && contactForm.get('cantidad')?.errors?.['required']"
+          class="alert alert-danger">Este espacio es requerido.</div>
   
-  <ion-button [disabled]="contactForm.invalid" expand="block" (click)="crearNuevoViaje()">
-    Crear viaje
-  </ion-button>
+      <ion-item>
+        <ion-label for="name" class="form-label">Precio: </ion-label>
+        <ion-input type="number" [(ngModel)]="data.precio" class="form-control" id="name" name="name" required formControlName="precio"></ion-input>
+        
+      </ion-item>
+      <div *ngIf="contactForm.get('precio')?.touched && contactForm.get('precio')?.errors?.['required']"
+          class="alert alert-danger">Este espacio es requerido.</div>
+  
+          
+          <ion-item>
+            <ion-label>Programar viaje: </ion-label> 
+          </ion-item>
+          <ion-input type="date" class="form-control" id="name" name="name" required formControlName="fecha" [(ngModel)]="data.fecha"></ion-input>
+          <div *ngIf="contactForm.get('fecha')?.touched && contactForm.get('fecha')?.errors?.['required']"
+          class="alert alert-danger">Este espacio es requerido.</div>
+          <ion-input type="time" class="form-control" id="name" name="name" required formControlName="hora" [(ngModel)]="data.hora"></ion-input>
+          <div *ngIf="contactForm.get('hora')?.touched && contactForm.get('hora')?.errors?.['required']"
+          class="alert alert-danger">Este espacio es requerido.</div>
+    </form>
+    <ion-button [disabled]="contactForm.invalid" expand="block" (click)="crearNuevoViaje()">
+      Crear viaje
+    </ion-button>
+  </ion-card>
+  
 </ion-content>

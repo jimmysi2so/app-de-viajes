@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
-import { FormControl } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-forgot-password',
@@ -10,9 +10,25 @@ import { Router } from '@angular/router';
 })
 export class ForgotPasswordPage implements OnInit {
   userEmail = new FormControl('');
-  constructor(private authSvc: AuthService, private router : Router) { }
+  
+  contactForm!: FormGroup;
 
+  constructor(private authSvc: AuthService, 
+              private router : Router,
+              private readonly fb: FormBuilder) { }
+
+  
   ngOnInit() {
+    this.contactForm = this.initForm();
+  }
+
+  onSubmit() {
+  }
+
+  initForm() : FormGroup {
+    return this.fb.group({
+      correo: ['', [Validators.required, Validators.email]]
+    })
   }
 
   async onReset(){

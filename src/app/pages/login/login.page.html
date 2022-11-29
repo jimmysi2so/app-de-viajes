@@ -10,6 +10,7 @@
 </ion-header>
 
 <ion-content>
+  <ion-card>
   <form (ngSubmit)="onSubmit()" [formGroup]="contactForm">
     <ion-item>
       <ion-label for="name" class="form-label">Correo: </ion-label>
@@ -31,16 +32,21 @@
         class="alert alert-danger">La contraceña debe tener
         {{ contactForm.get('password')?.errors?.['minlength']?.requiredLength}} caracteres minimo.</div>
   </form>
-    
-    <ion-button [disabled]="contactForm.invalid" (click) ='login()'>
-      login
-    </ion-button>
-    <ion-button [routerLink]="['/registro']" routerLinkActive="router-link-active">
-      registro 
-    </ion-button>
-    <p>
-      <a [routerLink]="['/forgot-password']">Olvidaste la contraceña</a>
-    </p> 
-  
+    <div class="form-group text-center">
+      <ion-button expand="block" [disabled]="contactForm.invalid" (click) ='login()'>
+        Ingresar
+      </ion-button>
+
+      <ion-button expand="block" [routerLink]="['/registro']" routerLinkActive="router-link-active">
+        Crear cuenta 
+      </ion-button>
+      
+    </div>
+    <div class="ion-text-center">
+      <p>
+        <a [routerLink]="['/forgot-password']">Olvidaste la contraseña</a>
+      </p> 
+    </div>
+  </ion-card>
 </ion-content>
 
