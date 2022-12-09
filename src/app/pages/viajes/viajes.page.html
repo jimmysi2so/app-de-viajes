@@ -29,19 +29,19 @@
           class="alert alert-danger">Este espacio es requerido.</div>
   
           
-          <ion-item>
-            <ion-label>Fecha:</ion-label>
-            <ion-input type="date" class="form-control" id="name" name="name" required formControlName="fecha" [(ngModel)]="data.fecha"></ion-input>
-            <div *ngIf="contactForm.get('fecha')?.touched && contactForm.get('fecha')?.errors?.['required']"
-            class="alert alert-danger">Este espacio es requerido.</div>
+      <ion-item>
+        <ion-label>Fecha:</ion-label>
+        <ion-input type="date" class="form-control" id="name" name="name" required formControlName="fecha" [(ngModel)]="data.fecha"></ion-input>
+        <div *ngIf="contactForm.get('fecha')?.touched && contactForm.get('fecha')?.errors?.['required']"
+        class="alert alert-danger">Este espacio es requerido.</div>
 
-          </ion-item>
-          <ion-item>
-            <ion-label>Hora:</ion-label>
-            <ion-input type="time" class="form-control" id="name" name="name" required formControlName="hora" [(ngModel)]="data.hora"></ion-input>
-            <div *ngIf="contactForm.get('hora')?.touched && contactForm.get('hora')?.errors?.['required']"
-            class="alert alert-danger">Este espacio es requerido.</div>
-          </ion-item>
+      </ion-item>
+      <ion-item>
+        <ion-label>Hora:</ion-label>
+        <ion-input type="time" class="form-control" id="name" name="name" required formControlName="hora" [(ngModel)]="data.hora"></ion-input>
+        <div *ngIf="contactForm.get('hora')?.touched && contactForm.get('hora')?.errors?.['required']"
+        class="alert alert-danger">Este espacio es requerido.</div>
+      </ion-item>
           
           
     </form>
