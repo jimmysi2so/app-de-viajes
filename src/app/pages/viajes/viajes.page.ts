@@ -13,7 +13,15 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class ViajesPage implements OnInit {
   [x: string]: any;
 
-  
+
+  isInputDisabled: boolean = false;
+
+  isButtonDisabled: boolean = false;
+
+  // cambia el estado del botón cuando se haga clic en otro botón
+  toggleButton() {
+    this.isButtonDisabled = true;
+  }
 
   contactForm!: FormGroup;
 
@@ -72,6 +80,11 @@ export class ViajesPage implements OnInit {
   }
   ///info usuario
   
+  //boton
+  toggleInput() {
+    this.isInputDisabled = true;
+  }
+  //boton
   onSubmit() {
     console.log('Form ->');
   }

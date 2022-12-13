@@ -15,7 +15,7 @@
     <form (ngSubmit)="onSubmit()" [formGroup]="contactForm">
       <ion-item>
         <ion-label for="name" class="form-label">Nombre: </ion-label>
-        <ion-input type="text" [(ngModel)]="data.nconductor" class="form-control" id="name" name="name" required formControlName="nconductor"></ion-input>
+        <ion-input [disabled]="isInputDisabled" type="text" [(ngModel)]="data.nconductor" class="form-control" id="name" name="name" required formControlName="nconductor"></ion-input>
         
       </ion-item>
       <div *ngIf="contactForm.get('nconductor')?.touched && contactForm.get('nconductor')?.errors?.['required']"
@@ -24,7 +24,7 @@
 
       <ion-item>
         <ion-label for="name" class="form-label">Cantidad: </ion-label>
-        <ion-input type="number" [(ngModel)]="data.cantidad" class="form-control" id="name" name="name" required formControlName="cantidad"></ion-input>
+        <ion-input [disabled]="isInputDisabled" type="number" [(ngModel)]="data.cantidad" class="form-control" id="name" name="name" required formControlName="cantidad"></ion-input>
         
       </ion-item>
       <div *ngIf="contactForm.get('cantidad')?.touched && contactForm.get('cantidad')?.errors?.['required']"
@@ -32,7 +32,7 @@
   
       <ion-item>
         <ion-label for="name" class="form-label">Precio: </ion-label>
-        <ion-input type="number" [(ngModel)]="data.precio" class="form-control" id="name" name="name" required formControlName="precio"></ion-input>
+        <ion-input [disabled]="isInputDisabled" type="number" [(ngModel)]="data.precio" class="form-control" id="name" name="name" required formControlName="precio"></ion-input>
         
       </ion-item>
       <div *ngIf="contactForm.get('precio')?.touched && contactForm.get('precio')?.errors?.['required']"
@@ -41,21 +41,21 @@
           
       <ion-item>
         <ion-label>Fecha:</ion-label>
-        <ion-input type="date" class="form-control" id="name" name="name" required formControlName="fecha" [(ngModel)]="data.fecha"></ion-input>
+        <ion-input [disabled]="isInputDisabled" type="date" class="form-control" id="name" name="name" required formControlName="fecha" [(ngModel)]="data.fecha"></ion-input>
         <div *ngIf="contactForm.get('fecha')?.touched && contactForm.get('fecha')?.errors?.['required']"
         class="alert alert-danger">Este espacio es requerido.</div>
 
       </ion-item>
       <ion-item>
         <ion-label>Hora:</ion-label>
-        <ion-input type="time" class="form-control" id="name" name="name" required formControlName="hora" [(ngModel)]="data.hora"></ion-input>
+        <ion-input [disabled]="isInputDisabled" type="time" class="form-control" id="name" name="name" required formControlName="hora" [(ngModel)]="data.hora"></ion-input>
         <div *ngIf="contactForm.get('hora')?.touched && contactForm.get('hora')?.errors?.['required']"
         class="alert alert-danger">Este espacio es requerido.</div>
       </ion-item>
           
           
     </form>
-    <ion-button  [disabled]="contactForm.invalid" expand="block" (click)="crearNuevoViaje()">
+    <ion-button (click)="toggleButton()" [disabled]="isButtonDisabled" (click)="toggleInput()" [disabled]="botonPresionado" [disabled]="contactForm.invalid" expand="block" (click)="crearNuevoViaje()">
       Crear viaje
     </ion-button>
     
