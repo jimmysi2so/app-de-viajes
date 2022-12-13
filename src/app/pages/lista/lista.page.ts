@@ -30,8 +30,8 @@ export class ListaPage implements OnInit {
     })
   }
 
-  buscar( event ){
-
+  OnClear(){
+    this.filterTerm="";
   }
   
 
