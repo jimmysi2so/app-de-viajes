@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { ListaPageRoutingModule } from './lista-routing.module';
 
 import { ListaPage } from './lista.page';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ListaPageRoutingModule
+    ListaPageRoutingModule,
+    Ng2SearchPipeModule
   ],
   declarations: [ListaPage]
 })

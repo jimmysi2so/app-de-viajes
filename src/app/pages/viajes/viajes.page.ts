@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Viaje } from 'src/app/models/models';
+import { Usuario, Viaje } from 'src/app/models/models';
 import { FirestoreService } from 'src/app/services/firestore.service';
 import { InteractionService } from 'src/app/services/interaction.service';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
@@ -13,9 +13,12 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class ViajesPage implements OnInit {
   [x: string]: any;
 
+  
+
   contactForm!: FormGroup;
 
   data: Viaje = {
+    nconductor: null,
     cantidad: null,
     precio: null,
     id: null,
@@ -26,18 +29,56 @@ export class ViajesPage implements OnInit {
   constructor(private database: FirestoreService,
               private interaction: InteractionService,
               private storage: AngularFireStorage,
-              private readonly fb: FormBuilder) { }
+              private readonly fb: FormBuilder,
+              private firestoreService: FirestoreService) { }
 
-  ngOnInit() {
+
+  uid: string = null;
+  info: Usuario = null;
+  ///info usuario
+  async ngOnInit() {
     this.contactForm = this.initForm();
+    console.log('Aloha');
+    this.getUid();
+    this.authService.stateUser().subscribe( res => {
+      console.log('en perfil estado de autenticacion -> ', res);
+      this.getUid();
+    });
+    this.getUid();
+    
+  }
+  
+  async getUid() {
+    const uid = await this.authService.getUid()
+    if (uid) {
+      this.uid = uid;
+      console.log('uid -> ', this.uid);
+      this.getInfoUser();
+    }else{
+      console.log('no existe uid');
+    }
+
   }
 
+  getInfoUser() {
+    const path = 'Usuarios';
+    const id = this.uid;  
+    this.firestoreService.getDoc<Usuario>(path, id).subscribe( res => {
+      if (res) {
+        this.info = res;
+      }
+      console.log('datos son -> ', res);
+    })
+  }
+  ///info usuario
+  
   onSubmit() {
     console.log('Form ->');
   }
   
   initForm() : FormGroup {
     return this.fb.group({
+      nconductor: ['', [Validators.required]],
       cantidad: ['', [Validators.required]],
       precio: ['', [Validators.required]],
       fecha: ['', [Validators.required]],

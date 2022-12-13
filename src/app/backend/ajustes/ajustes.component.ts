@@ -11,6 +11,7 @@ import { InteractionService } from 'src/app/services/interaction.service';
 export class AjustesComponent implements OnInit {
 
   data: Viaje = {
+    nconductor: null,
     cantidad: null,
     precio: null,
     id: null,

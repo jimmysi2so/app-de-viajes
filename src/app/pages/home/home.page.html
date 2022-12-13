@@ -1,11 +1,13 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
+    
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title>
-      Home
+      Desliza para acceder al menu
     </ion-title>
+    
   </ion-toolbar>
 </ion-header>
 
@@ -15,10 +17,12 @@
   <ion-list *ngIf="info">
     <ion-item>
       <ion-label>
-        <h1>Bienvenido!! {{info.nombre}} {{info.apellido}}</h1>
+        <a>Bienvenido!! {{info.nombre}} {{info.apellido}}</a>
       </ion-label>
     </ion-item>
     <ion-img src="/assets/auto.jpg"></ion-img>
   </ion-list>
-
+  
 </ion-content>
+
+

@@ -8,6 +8,7 @@ export interface Usuario {
 }
 
 export interface Viaje {
+    nconductor: string;
     cantidad: number;
     precio: number;
     id: string;

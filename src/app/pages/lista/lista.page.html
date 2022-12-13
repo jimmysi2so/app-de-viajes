@@ -7,17 +7,23 @@
       Lista de viajes
     </ion-title>
   </ion-toolbar>
+  
+  <ion-toolbar>
+    <ion-searchbar animated placeholder="Buscar" [(ngModel)]="filterTerm"></ion-searchbar>
+  </ion-toolbar>
+
 </ion-header>
 
 <ion-content>
-  <div class="content-viaje" *ngFor="let viaje of viajes" >
+  <div class="content-viaje" *ngFor="let viaje of viajes | filter:filterTerm">
     <ion-card>
       <ion-card-header>
+        <ion-card-title>Nombre del conductor: {{viaje.nconductor}}</ion-card-title>
         <ion-card-title>Cantidad de pasajeros: {{viaje.cantidad}}</ion-card-title>
         <ion-card-title>Precio del viaje: {{viaje.precio}}</ion-card-title>
         <ion-card-title>Horario del viaje: {{viaje.fecha}} a las {{viaje.hora}}</ion-card-title>
       </ion-card-header>
     </ion-card>
-    
+
   </div>
 </ion-content>

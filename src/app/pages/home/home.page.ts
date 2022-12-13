@@ -99,6 +99,6 @@ export class HomePage {
     this.interactionService.closeLoading();
     })
   }
-  
+  //////////////////////////////////////editar contraceña
     
 }

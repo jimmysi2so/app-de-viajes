@@ -10,23 +10,29 @@ import { FirestoreService } from '../../services/firestore.service';
 export class ListaPage implements OnInit {
 
   viajes: Viaje[] = [];   
+  filterTerm: string="0";
 
   constructor(private database: FirestoreService) { 
     
   }
 
   ngOnInit() {
-    console.log('HOLA YA SE CREO LA VISTA');
+    
     this.getViajes();
+    
   }
 
   getViajes() {
     this.database.getCollection<Viaje>('Viajes').subscribe( res => {
-      console.log('esta es la lectura', res);
+      
       this.viajes = res;
+      
     })
   }
 
+  buscar( event ){
+
+  }
   
 
 }

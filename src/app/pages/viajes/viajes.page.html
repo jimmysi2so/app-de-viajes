@@ -9,9 +9,19 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content >
   <ion-card>
+    
     <form (ngSubmit)="onSubmit()" [formGroup]="contactForm">
+      <ion-item>
+        <ion-label for="name" class="form-label">Nombre: </ion-label>
+        <ion-input type="text" [(ngModel)]="data.nconductor" class="form-control" id="name" name="name" required formControlName="nconductor"></ion-input>
+        
+      </ion-item>
+      <div *ngIf="contactForm.get('nconductor')?.touched && contactForm.get('nconductor')?.errors?.['required']"
+          class="alert alert-danger">Este espacio es requerido.</div>
+
+
       <ion-item>
         <ion-label for="name" class="form-label">Cantidad: </ion-label>
         <ion-input type="number" [(ngModel)]="data.cantidad" class="form-control" id="name" name="name" required formControlName="cantidad"></ion-input>
@@ -45,9 +55,10 @@
           
           
     </form>
-    <ion-button [disabled]="contactForm.invalid" expand="block" (click)="crearNuevoViaje()">
+    <ion-button  [disabled]="contactForm.invalid" expand="block" (click)="crearNuevoViaje()">
       Crear viaje
     </ion-button>
+    
   </ion-card>
   
 </ion-content>
