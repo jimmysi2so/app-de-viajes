@@ -1,6 +1,1 @@
-# Fuego
-# npm install
-# npm install -g @ionic/cli
-# npm install @angular/fire firebase --save
-nirvanadane@gmail.com
-Adam2018
+Link de descarga de la apk: https://drive.google.com/file/d/1cESqvNduShBb4wPwHiPzjSxWWGMYVSuj/view?usp=share_link
